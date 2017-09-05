@@ -161,3 +161,37 @@ class AssocOptions
     model_class.table_name
   end
 end
+
+
+class BelongsToOptions < AssocOptions
+  def initialize(name, options = {})
+    default_values =
+      {:class_name => name.to_s.camelcase,
+      :primary_key => :id,
+      :foreign_key => "#{name}_id".to_sym}
+
+      values = default_values.merge(options)
+
+
+      values.each do |k, v|
+        self.instance_variable_set("@#{k}", v)
+      end
+    end
+end
+
+class HasManyOptions < AssocOptions
+  def initialize(name, class_name, options = {})
+    default_values =
+      {:foreign_key => "#{class_name.underscore}_id".to_sym,
+      :primary_key => :id,
+      :class_name => name.to_s.singularize.camelcase
+    }
+
+      values = default_values.merge(options)
+
+      values.each do |k, v|
+        self.instance_variable_set("@#{k}", v)
+      end
+
+  end
+end
