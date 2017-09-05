@@ -45,7 +45,7 @@ VALUES
   (6, "Lady Bird", 3),
   (7, "Mr. P.C.", 4),
   (8, "Countdoown", 4),
-  (9, "Goodbye Pork Pie Hat", 5)
-  (10, "Better Git It In Your Soul", 5)
-  (11, "Wednesday Night Prayer Meeting", 6)
-  (12, "My Jelly Roll Soul", 6)
+  (9, "Goodbye Pork Pie Hat", 5),
+  (10, "Better Git It In Your Soul", 5),
+  (11, "Wednesday Night Prayer Meeting", 6),
+  (12, "My Jelly Roll Soul", 6);
