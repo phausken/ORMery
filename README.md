@@ -1,10 +1,10 @@
-#ORMery#
+# ORMery
 
 ORMery is an object-relational mapping tool built using Ruby, with an SQLite3 database.
 
 To try it out, simply load `songs.rb` into your favorite Ruby REPL (we recommend `pry` but `irb` works just fine).
 
-##Setup##
+## Setup
 
 To use your own SQL file, add it to `db_connection.rb` by changing the `SQL_FILE` function like so:
 
@@ -19,7 +19,7 @@ In the terminal, run the following command to create the database:
 
 Your SQL database is now ready to go!
 
-##Creating and Using Classes##
+## Creating and Using Classes
 
 To create your own classes, create a `.rb` file, and add `require_relative 'lib/sql_object'`.
 
@@ -27,7 +27,7 @@ Each class needs to inherit from `SQLObject`. After writing any associations, yo
 
 Look at `song.rb` for reference!
 
-##Basic Methods##
+## Basic Methods
 
 ```ruby
 Song.all #Returns all songs
@@ -40,7 +40,19 @@ Artist.table_name = #Change the name of SQL table
 
 ```
 
-##Search##
+Class instances can be created, modified, and saved easily:
+
+```ruby
+charlie_parker = Artist.new(name: "Charlie Parker") #.new takes in an optional params hash
+charlie_parker.save
+
+bud_powell = Artist.new
+bud_powell.name = "Bud Powell"
+bud_powell.save
+
+```
+
+## Search
 
 To search by a specific column value, use the `.where` method, passing in a hash with the column as a key and the query as the value:
 
@@ -48,7 +60,7 @@ To search by a specific column value, use the `.where` method, passing in a hash
 Artist.where(name: "John Coltrane") #Returns either an artist object or an empty array if nothing is found
 ```
 
-##Associations##
+## Associations
 
 Write your associations in the class definition, before calling `finalize!`:
 
@@ -81,7 +93,7 @@ Album.songs
 Artist.albums
 ```
 
-##Future Implementations##
+## Future Implementations
 
 Here are some features I intend to incorporate in future releases:
 
